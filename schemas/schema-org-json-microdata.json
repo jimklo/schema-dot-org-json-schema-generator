@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "items": {
+            "type": "array",
+            "items": {}
+
+        }
+    },
+    "required": ["items"],
+    "definitions": {
+        "DataType": {
+            "oneOf": [{
+                "$ref": "#/definitions/Boolean"
+            }, {
+                "$ref": "#/definitions/Date"
+            }, {
+                "$ref": "#/definitions/DateTime"
+            }, {
+                "$ref": "#/definitions/Number"
+            }, {
+                "$ref": "#/definitions/Text"
+            }, {
+                "$ref": "#/definitions/Time"
+            }]
+        },
+        "Text": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Float": {
+            "type": "number",
+            "not": {
+                "type": "integer"
+            }
+        },
+        "DateTime": {
+            "type": "string",
+            "format": "datetime"
+        },
+        "URL": {
+            "type": "string",
+            "format": "uri"
+        },
+        "Boolean": {
+            "enum": [
+                "True",
+                "False",
+                "http://schema.org/True",
+                "http://schema.org/False",
+            true,
+            false]
+        },
+        "Time": {
+            "type": "string",
+            "format": "time"
+        },
+        "Date": {
+            "type": "string",
+            "format": "date"
+        },
+        "Number": {
+            "type": "number"
+        }
+
+    }
+}

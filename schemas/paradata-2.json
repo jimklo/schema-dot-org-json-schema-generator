@@ -1,0 +1,168 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Paradata 2.0",
+
+    "oneOf": [{
+        "$ref": "#definitions/activity"
+    }, {
+        "$ref": "#definitions/collection"
+    }],
+
+    "definitions": {
+        "collection": {
+            "name": "collection",
+            "type": "object",
+            "description": "A collection of zero or more activity objects",
+            "properties": {
+                "objectType": {
+                    "enum": ["http://learningregistry.org/ActivityCollection"]
+                },
+                "totalItems": {
+                    "type": "integer",
+                    "description": "The total number of activity objects in the collection.  Optional",
+                    "minimum": 0,
+                },
+                "items": {
+                    "type": ["array"],
+                    "description": "An array holding the activity objects. Required",
+                    "required": true,
+                    "minItems": 0,
+                    "items": {
+                        "$ref": "#definitions/activity"
+                    }
+                }
+            }
+        },
+
+        "activity": {
+            "title": "activity",
+            "type": "object",
+            "description": "A paradata statement describing an activity, an aggregation of activities, or an assertion about a learning resource or system resource",
+            "properties": {
+                "objectType": {
+                    "enum": ["http://learningregistry.org/Activity"]
+                },
+                "actor": {
+                    "anyOf": [{
+                        "type": "string"
+                    }, {
+                        "$ref": "#definitions/object-with-context"
+                    }],
+                    "description": "The description of the entity or persona that performed the activity"
+                },
+                "verb": {
+                    "anyOf": [{
+                        "type": "string"
+                    }, {
+                        "$ref": "#definitions/object-action"
+                    }],
+                    "description": "The action for the activity or the kind of assertion"
+                },
+                "object": {
+                    "anyOf": [{
+                        "type": "string"
+                    }, {
+                        "$ref": "#definitions/object-with-context"
+                    }],
+                    "description": "The thing that the action is applied to"
+                },
+                "related": {
+                    "type": "array",
+                    "description": "A list of objects related to the object/thing",
+                    "minItems": 1,
+                    "items": {
+                        "anyOf": [{
+                            "type": "string"
+                        }, {
+                            "$ref": "#definitions/object-with-context"
+                        }]
+                    }
+                },
+                "content": {
+                    "type": "string",
+                    "description": "A natural language description of the activity"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "A permanent, unique, reference able identity for the activity",
+                    "format": "RFC 3987 IRI"
+                },
+                "published": {
+                    "type": "string",
+                    "description": "The point in time when the activity was published, i.e., when the activity statement was created, not when the activity occurred",
+                    "format": "RFC 3339 date - time"
+                }
+            },
+            "required": ["objectType", "verb"]
+
+        },
+
+        "object-no-context": {
+            "title": "object-no-context schema",
+            "description": "The description of an actor, verb, object, related or context of an activity.  This object or its extensions are subobjects of the actor, verb, object, related objects or context properties",
+            "properties": {
+                "id": {
+                    "type": ["string", "object"],
+                    "description": "The identity of the actor, verb, object, related objects or context. The id may be a simple string or a JSON object. The schema for the JSON object defining the identity is not specified"
+                },
+                "objectType": {
+                    "type": ["string", "object"],
+                    "description": "The type of the actor, object, related objects or context. The object type may be a simple string or a JSON object. The schema for the JSON object defining the object type is not specified"
+                },
+                "description": {
+                    "type": ["array"],
+                    "description": "A list of key words describing or classifying the actor, verb, related objects or context",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "measure": {
+                    "type": ["object", null],
+                    "description": "Numeric or other measures of the actor, verb, object, related objects or context.The object type is a JSON object. The schema for the JSON object defining the measure is not specified"
+                },
+                "date": {
+                    "type": ["string ", null],
+                    "description": "The date or point in time related to the actor, verb, object, related objects or context of the activity.The format is a restricted subset of the point in time or date range encoding from ISO 8601 and RFC 3339",
+                    "format": [
+                        "date",
+                        "point in time",
+                        "start - end date range"]
+                }
+            }
+        },
+
+        "object-with-context": {
+            "title": "object-with-context schema",
+            "type": "object",
+            "description": "The description of an actor, verb, object or related of an activity.  This object or its extensions are subobjects of the actor, verb, object or related properties.  It extends object-no-context to add context",
+            "properties": {
+                "context": {
+                    "oneOf": [{
+                        "type": "string"
+                    }, {
+                        "$ref": "#definitions/object-no-context"
+                    }],
+                    "description": "The context for the actor, verb, object or related objects"
+                }
+            },
+            "oneOf": [{
+                "$ref": "#definitions/object-no-context"
+            }]
+        },
+
+        "object-with-action": {
+            "title": "object-with-action schema",
+            "description": "The description of an verb,of an activity.  This object is a subobject of the verb property.  It extends object-with-context to add action",
+            "extends": "object-with-context schema",
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "description": "The designation of the action"
+                }
+            },
+            "required": ["action"]
+        }
+
+    }
+}

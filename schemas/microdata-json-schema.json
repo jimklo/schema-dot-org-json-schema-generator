@@ -1,0 +1,130 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "properties": {
+        "items": {
+            "type": "array",
+            "items": [
+                {
+                    "allOf": [
+                        {
+                            "anyOf": [
+                                { "$ref": "#/definitions/CreativeWork" },
+                                { "$ref": "#/definitions/Thing" }
+                            ]      
+                        },
+                        {
+                            "required": ["id"]
+                        }
+                    ]
+                }
+            ],
+            "additionalItems": false
+        }
+    },
+
+    "definitions": {
+        "microdata": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "additionalItems": false
+
+                },
+                "properties": {
+                    "patternProperties": {
+                        ".*": {
+                            "type": "array",
+                            "items": [ 
+                                {
+                                    "anyOf": [
+                                    {
+                    
+                                        "$ref": "#/definitions/microdata"
+                                    
+                                    }, 
+                                    { 
+                                        "type": "string" 
+                                    }
+
+                                    ]
+                                }
+                
+                            ],
+                            "additionalItems": false
+
+                        }
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "required": [ "type", "properties" ]
+        },
+        "CreativeWork": {
+            "allOf": [
+                { "$ref": "#/definitions/microdata" },
+                { 
+
+                    "properties": {
+
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "enum": ["http://schema.org/CreativeWork"]
+                            }
+                        },
+                        "properties": {
+                            "properties": {
+                                "name" : { "$ref": "#/definitions/array_of_string" },
+                                "url": { "$ref": "#/definitions/array_of_string" }
+                            }
+                        }
+
+                    }
+                }
+            ],
+            "anyOf": [
+                { "$ref": "#/definitions/Thing"}
+            ]
+        },
+
+        "Thing": {
+            "allOf": [
+                { "$ref": "#/definitions/microdata" },
+                { 
+
+                    "properties": {
+
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "enum": ["http://schema.org/Thing", "http://schema.org/CreativeWork"]
+                            }
+                        },
+                        "properties": {
+                            "properties": {
+                                "name" : { "$ref": "#/definitions/array_of_string" },
+                                "url": { "$ref": "#/definitions/array_of_string" }
+                            }
+                        }
+
+                    }
+                }
+            ]
+        },
+
+        "array_of_string": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,267 @@
+[
+  { "op": "remove", "path": "/definitions/CreativeWork/allOf/1/properties/properties/properties/interactivityType/items/$ref" },
+  { 
+    "op": "add", 
+    "path": "/definitions/CreativeWork/allOf/1/properties/properties/properties/interactivityType/items/enum", 
+    "value": ["active", "expositive", "mixed"]
+  },
+  { 
+    "op": "add", 
+    "path": "/definitions/CreativeWork/allOf/1/properties/properties/properties/useRightsUrl", 
+    "value": {
+              "items": {
+                "$ref": "#/definitions/URL"
+              },
+              "type": "array",
+              "description": "The URL where the owner specifies permissions for using the resource. Ex: \"http://creativecommons.org/licenses/by/3.0/\", \"http://publisher.com/content-use-description\"",
+              "title": "Use Rights URL"
+            }
+  },
+  {
+    "op": "add",
+    "path": "/_tempDefinitions",
+    "value": {
+        "DataType": {
+            "oneOf": [{
+                "$ref": "#/definitions/Boolean"
+            }, {
+                "$ref": "#/definitions/Date"
+            }, {
+                "$ref": "#/definitions/DateTime"
+            }, {
+                "$ref": "#/definitions/Number"
+            }, {
+                "$ref": "#/definitions/Text"
+            }, {
+                "$ref": "#/definitions/Time"
+            }]
+        },
+        "Text": {
+            "type": "string"
+        },
+        "Integer": {
+            "type": "integer"
+        },
+        "Float": {
+            "type": "number",
+            "not": {
+                "type": "integer"
+            }
+        },
+        "DateTime": {
+            "type": "string",
+            "format": "datetime"
+        },
+        "URL": {
+            "type": "string",
+            "format": "uri"
+        },
+        "Boolean": {
+            "enum": [
+                "True",
+                "False",
+                "http://schema.org/True",
+                "http://schema.org/False",
+                true,
+                false]
+        },
+        "Time": {
+            "type": "string",
+            "format": "time"
+        },
+        "Date": {
+            "type": "string",
+            "format": "date"
+        },
+        "Number": {
+            "type": "number"
+        }
+
+    }
+  },
+  {
+    "op": "move",
+    "from": "/definitions/DataType/title",
+    "path": "/_tempDefinitions/DataType/title"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/DataType/description",
+    "path": "/_tempDefinitions/DataType/description"
+  },
+  {
+    "op": "move",
+    "from": "/_tempDefinitions/DataType",
+    "path": "/definitions/DataType"
+  },
+  
+  {
+    "op": "move",
+    "from": "/definitions/Text/title",
+    "path": "/_tempDefinitions/Text/title"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/Text/description",
+    "path": "/_tempDefinitions/Text/description"
+  },
+  {
+    "op": "move",
+    "from": "/_tempDefinitions/Text",
+    "path": "/definitions/Text"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/Integer/title",
+    "path": "/_tempDefinitions/Integer/title"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/Integer/description",
+    "path": "/_tempDefinitions/Integer/description"
+  },
+  {
+    "op": "move",
+    "from": "/_tempDefinitions/Integer",
+    "path": "/definitions/Integer"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/Float/title",
+    "path": "/_tempDefinitions/Float/title"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/Float/description",
+    "path": "/_tempDefinitions/Float/description"
+  },
+  {
+    "op": "move",
+    "from": "/_tempDefinitions/Float",
+    "path": "/definitions/Float"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/DateTime/title",
+    "path": "/_tempDefinitions/DateTime/title"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/DateTime/description",
+    "path": "/_tempDefinitions/DateTime/description"
+  },
+  {
+    "op": "move",
+    "from": "/_tempDefinitions/DateTime",
+    "path": "/definitions/DateTime"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/URL/title",
+    "path": "/_tempDefinitions/URL/title"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/URL/description",
+    "path": "/_tempDefinitions/URL/description"
+  },
+  {
+    "op": "move",
+    "from": "/_tempDefinitions/URL",
+    "path": "/definitions/URL"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/Boolean/title",
+    "path": "/_tempDefinitions/Boolean/title"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/Boolean/description",
+    "path": "/_tempDefinitions/Boolean/description"
+  },
+  {
+    "op": "move",
+    "from": "/_tempDefinitions/Boolean",
+    "path": "/definitions/Boolean"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/Time/title",
+    "path": "/_tempDefinitions/Time/title"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/Time/description",
+    "path": "/_tempDefinitions/Time/description"
+  },
+  {
+    "op": "move",
+    "from": "/_tempDefinitions/Time",
+    "path": "/definitions/Time"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/Date/title",
+    "path": "/_tempDefinitions/Date/title"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/Date/description",
+    "path": "/_tempDefinitions/Date/description"
+  },
+  {
+    "op": "move",
+    "from": "/_tempDefinitions/Date",
+    "path": "/definitions/Date"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/Number/title",
+    "path": "/_tempDefinitions/Number/title"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/Number/description",
+    "path": "/_tempDefinitions/Number/description"
+  },
+  {
+    "op": "move",
+    "from": "/_tempDefinitions/Number",
+    "path": "/definitions/Number"
+  },
+  {
+    "op": "remove",
+    "path": "/_tempDefinitions"
+  },
+
+
+  {
+    "op": "move",
+    "from": "/definitions/Duration",
+    "path": "/definitions/_Duration"
+  },
+  { 
+    "op": "add", 
+    "path": "/definitions/Duration",
+    "value": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^(-)?P(?:(\\d+)Y)?(?:(\\d+)M)?(?:(\\d+)D)?(T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+(?:\\.\\d+)?)S)?)?$"
+        }
+      ]
+
+    }
+  },
+  {
+    "op": "move",
+    "from": "/definitions/_Duration/title",
+    "path": "/definitions/Duration/title"
+  },
+  {
+    "op": "move",
+    "from": "/definitions/_Duration/description",
+    "path": "/definitions/Duration/description"
+  }
+]
