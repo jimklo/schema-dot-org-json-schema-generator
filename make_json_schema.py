@@ -6,7 +6,7 @@ all_schema_org = json.load(urllib2.urlopen("http://schema.rdfs.org/all.json"))
 
 # all_schema_org = json.load(open("schemas/schema-rdfs-org.json"))
 
-lrmi_mixin = json.load(open("schemas/lrmi-json-microdata-mixin.json"))
+lrmi_mixin = json.load(open("schemas/backup-mixin.json"))
 
 log = open("log.json", "w")
 

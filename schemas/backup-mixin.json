@@ -1,79 +1,105 @@
-{
-    "op": "add",
-    "path": "/_temp",
-    "value": {
-            "educationalAlignment": {
-              "items": {
-                "$ref": "#definitions/AlignmentObject"
-              },
-              "type": "array",
-              "description": "An alignment to an established educational framework.",
-              "title": "Educational Alignment"
-            },
-            "educationalUse": {
-              "items": {
-                "$ref": "#definitions/Text"
-              },
-              "type": "array",
-              "description": "he purpose of the work in the context of education. Ex: \"assignment\", \"group work\"",
-              "title": "Educational Use"
-            },
-            "timeRequired": {
-              "items": {
-                "$ref": "#definitions/Duration"
-              },
-              "type": "array",
-              "description": "Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience. Ex: \"P30M\", \"P1H25M\"",
-              "title": "Time Required"
-            },
-            "typicalAgeRange": {
-              "items": {
-                "$ref": "#definitions/Text"
-              },
-              "type": "array",
-              "description": "The typical range of ages the content’s intended end user. Ex: \"7-9\", \"18-\"",
-              "title": "Typical Age Range"
-            },
-            "interactivityType": {
-              "items": {
-                "enum": ["active", "expositive", "mixed"]
-              },
-              "type": "array",
-              "description": "The predominant mode of learning supported by the learning resource. Acceptable values are active, expositive, or mixed.",
-              "title": "Interactivity Type"
-            },
-            "learningResourceType": {
-              "items": {
-                "$ref": "#definitions/Text"
-              },
-              "type": "array",
-              "description": "The predominant type or kind characterizing the learning resource. Ex: \"presentation\", \"handout\"",
-              "title": "Learning Resource Type"
-            },
-            "useRightsUrl": {
-              "items": {
-                "$ref": "#definitions/URL"
-              },
-              "type": "array",
-              "description": "The URL where the owner specifies permissions for using the resource. Ex: \"http://creativecommons.org/licenses/by/3.0/\", \"http://publisher.com/content-use-description\"",
-              "title": "Use Rights URL"
-            },
-            "isBasedOnUrl": {
-              "items": {
-                "$ref": "#definitions/URL"
-              },
-              "type": "array",
-              "description": "A resource that was used in the creation of this resource. This term can be repeated for multiple sources. Ex: \"http://example.com/great-multiplication-intro.html\"",
-              "title": "Is Based On URL"
-            }
-          }
-  },
-  { "op": "move", "from": "/_temp/educationalAlignment", "path": "/definitions/CreativeWork/properties/properties/properties/educationalAlignment"},
-  { "op": "move", "from": "/_temp/educationalUse", "path": "/definitions/CreativeWork/properties/properties/properties/educationalUse"},
-  { "op": "move", "from": "/_temp/timeRequired", "path": "/definitions/CreativeWork/properties/properties/properties/timeRequired"},
-  { "op": "move", "from": "/_temp/typicalAgeRange", "path": "/definitions/CreativeWork/properties/properties/properties/typicalAgeRange"},
-  { "op": "move", "from": "/_temp/interactivityType", "path": "/definitions/CreativeWork/properties/properties/properties/interactivityType"},
-  { "op": "move", "from": "/_temp/learningResourceType", "path": "/definitions/CreativeWork/properties/properties/properties/learningResourceType"},
-  { "op": "move", "from": "/_temp/useRightsUrl", "path": "/definitions/CreativeWork/properties/properties/properties/useRightsUrl"},
-  { "op": "move", "from": "/_temp/isBasedOnUrl", "path": "/definitions/CreativeWork/properties/properties/properties/isBasedOnUrl"},
-  { "op": "remove", "path": "/_temp" }
+[{
+  "op": "add",
+  "path": "/_temp",
+  "value": {
+    "educationalAlignment": {
+      "items": {
+        "$ref": "#definitions/AlignmentObject"
+      },
+      "type": "array",
+      "description": "An alignment to an established educational framework.",
+      "title": "Educational Alignment"
+    },
+    "educationalUse": {
+      "items": {
+        "$ref": "#definitions/Text"
+      },
+      "type": "array",
+      "description": "he purpose of the work in the context of education. Ex: \"assignment\", \"group work\"",
+      "title": "Educational Use"
+    },
+    "timeRequired": {
+      "items": {
+        "$ref": "#definitions/Duration"
+      },
+      "type": "array",
+      "description": "Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience. Ex: \"P30M\", \"P1H25M\"",
+      "title": "Time Required"
+    },
+    "typicalAgeRange": {
+      "items": {
+        "$ref": "#definitions/Text"
+      },
+      "type": "array",
+      "description": "The typical range of ages the content’s intended end user. Ex: \"7-9\", \"18-\"",
+      "title": "Typical Age Range"
+    },
+    "interactivityType": {
+      "items": {
+        "enum": ["active", "expositive", "mixed"]
+      },
+      "type": "array",
+      "description": "The predominant mode of learning supported by the learning resource. Acceptable values are active, expositive, or mixed.",
+      "title": "Interactivity Type"
+    },
+    "learningResourceType": {
+      "items": {
+        "$ref": "#definitions/Text"
+      },
+      "type": "array",
+      "description": "The predominant type or kind characterizing the learning resource. Ex: \"presentation\", \"handout\"",
+      "title": "Learning Resource Type"
+    },
+    "useRightsUrl": {
+      "items": {
+        "$ref": "#definitions/URL"
+      },
+      "type": "array",
+      "description": "The URL where the owner specifies permissions for using the resource. Ex: \"http://creativecommons.org/licenses/by/3.0/\", \"http://publisher.com/content-use-description\"",
+      "title": "Use Rights URL"
+    },
+    "isBasedOnUrl": {
+      "items": {
+        "$ref": "#definitions/URL"
+      },
+      "type": "array",
+      "description": "A resource that was used in the creation of this resource. This term can be repeated for multiple sources. Ex: \"http://example.com/great-multiplication-intro.html\"",
+      "title": "Is Based On URL"
+    }
+  }
+}, {
+  "op": "move",
+  "from": "/_temp/educationalAlignment",
+  "path": "/definitions/CreativeWork/properties/properties/properties/educationalAlignment"
+}, {
+  "op": "move",
+  "from": "/_temp/educationalUse",
+  "path": "/definitions/CreativeWork/properties/properties/properties/educationalUse"
+}, {
+  "op": "move",
+  "from": "/_temp/timeRequired",
+  "path": "/definitions/CreativeWork/properties/properties/properties/timeRequired"
+}, {
+  "op": "move",
+  "from": "/_temp/typicalAgeRange",
+  "path": "/definitions/CreativeWork/properties/properties/properties/typicalAgeRange"
+}, {
+  "op": "move",
+  "from": "/_temp/interactivityType",
+  "path": "/definitions/CreativeWork/properties/properties/properties/interactivityType"
+}, {
+  "op": "move",
+  "from": "/_temp/learningResourceType",
+  "path": "/definitions/CreativeWork/properties/properties/properties/learningResourceType"
+}, {
+  "op": "move",
+  "from": "/_temp/useRightsUrl",
+  "path": "/definitions/CreativeWork/properties/properties/properties/useRightsUrl"
+}, {
+  "op": "move",
+  "from": "/_temp/isBasedOnUrl",
+  "path": "/definitions/CreativeWork/properties/properties/properties/isBasedOnUrl"
+}, {
+  "op": "remove",
+  "path": "/_temp"
+}]
