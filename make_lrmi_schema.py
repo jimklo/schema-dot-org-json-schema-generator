@@ -18,18 +18,83 @@ def get_prop_schema(prop_name):
     prop_schema = {
         "title": prop_def["label"],
         "description": prop_def["comment_plain"],
-        "type": "array"
+        "type": "array",
+        "additionalItems": False
     }
 
-    if len(prop_def["ranges"]) > 1:
-        prop_schema["items"] = {
-            "oneOf": map(lambda x: { "$ref": "#/definitions/{0}".format(x)}, prop_def["ranges"])
-        }
-    elif len(prop_def["ranges"]) == 1:
-        prop_schema["items"] = { "$ref": "#/definitions/{0}".format(prop_def["ranges"][0])}
+    if prop_name == "acceptedPaymentMethod":
+        import pdb; pdb.set_trace()
 
+    prop_schema["items"] = get_schemas_for_ranges(prop_def["ranges"])
     return prop_def["id"], prop_schema
 
+def get_schemas_for_ranges(ranges=[]):
+    schemas = []
+    instances = []
+    for r in ranges:
+        if r not in schemas:
+            schemas.append(r)
+            if r in all_schema_org["types"]:
+                subids, subinstances = find_subids(all_schema_org["types"][r], [])
+                if len(subinstances)>0:
+                    for inst in subinstances:
+                        if inst not in instances:
+                            instances.append(inst)
+                else:
+                    for i in subids:
+                        if i not in schemas:
+                            schemas.append(i)
+    
+    result = []
+    
+    if len(instances)>0:
+        result.append({
+            "enum": map("http://schema.org/{0}".format, instances)   
+        })
+    if len(schemas)>0:
+       result += map(lambda x: { "$ref": "#/definitions/{0}".format(x)}, schemas)
+
+    if len(result) == 1:
+        return result[0]
+    else:
+        return {
+            "oneOf": result
+        }
+    
+
+def unique(seq):
+    return {}.fromkeys(seq).keys()
+
+def find_subids(type_def, type_list=[]):
+
+    instance_list=[]
+
+    # if type_def["id"] == "Thing":
+    #     import pdb; pdb.set_trace()
+
+
+    try: 
+
+        if len(type_def["instances"]) > 0:
+            instance_list += type_def["instances"]
+            return [], instance_list
+    except:
+        pass
+
+
+    if "id" in type_def and type_def["id"] not in type_list:
+        type_list.append(type_def["id"])
+
+    try:
+        for subtype in type_def["subtypes"]:
+            subtype_def = all_schema_org["types"][subtype]
+            type_list, new_instance_list = find_subids(subtype_def, type_list)
+            instance_list += new_instance_list
+
+    except:
+        pass
+
+    return type_list, unique(instance_list)
 
 def find_subtypes(type_def, type_list=[]):
     if "url" in type_def and type_def["url"] not in type_list:
@@ -43,6 +108,8 @@ def find_subtypes(type_def, type_list=[]):
         pass
 
     return type_list
+
+
 
 
 
@@ -62,6 +129,7 @@ def get_type_schema(type_def):
         }
 
         type_schema.update(type_inst)
+        del type_schema["allOf"]
         
     else:
         this_schema = {
@@ -69,24 +137,25 @@ def get_type_schema(type_def):
                 "type": {
                     "type": "array",
                     "items": {
-                        "enum": find_subtypes(type_def, [])
-                    }
+                        "enum": [type_def["url"]]
+                    },
+                    "additionalItems": False
                 },
                 "properties": { }
             }
         }
 
-        if len(type_def["specific_properties"]) > 0:
+        if len(type_def["properties"]) > 0:
             this_schema["properties"]["properties"]["properties"] = { }
 
-        for spec_prop in type_def["specific_properties"]:
+        for spec_prop in type_def["properties"]:
             prop_name, prop_def = get_prop_schema(spec_prop)
             this_schema["properties"]["properties"]["properties"][prop_name] = prop_def
 
         type_schema["allOf"].append(this_schema)
 
-    if len(type_def["supertypes"]) > 0:
-        type_schema["anyOf"] = map(lambda x: { "$ref": "#/definitions/{0}".format(x)}, type_def["supertypes"])
+    # if len(type_def["supertypes"]) > 0:
+    #     type_schema["anyOf"] = map(lambda x: { "$ref": "#/definitions/{0}".format(x)}, type_def["supertypes"])
 
     return type_schema
 

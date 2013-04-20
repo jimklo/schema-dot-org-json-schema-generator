@@ -1,5 +1,8 @@
 [
-  { "op": "remove", "path": "/definitions/CreativeWork/allOf/1/properties/properties/properties/interactivityType/items/$ref" },
+  { 
+    "op": "remove", 
+    "path": "/definitions/CreativeWork/allOf/1/properties/properties/properties/interactivityType/items/$ref" 
+  },
   { 
     "op": "add", 
     "path": "/definitions/CreativeWork/allOf/1/properties/properties/properties/interactivityType/items/enum", 
@@ -50,7 +53,7 @@
         },
         "DateTime": {
             "type": "string",
-            "format": "datetime"
+            "format": "date-time"
         },
         "URL": {
             "type": "string",
@@ -67,11 +70,11 @@
         },
         "Time": {
             "type": "string",
-            "format": "time"
+            "pattern": "\\d{2}:\\d{2}:\\d{2}(Z|[+-]?\\d{2}(:\\d{2})?)?"
         },
         "Date": {
             "type": "string",
-            "format": "date"
+            "pattern": "(\\d{4}-\\d{2}-\\{2}|\\d{8})"
         },
         "Number": {
             "type": "number"
