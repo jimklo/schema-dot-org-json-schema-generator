@@ -1,0 +1,12 @@
+{
+    "items": [{
+                "id": "foobar",
+                "type": ["http://schema.org/Person"],
+                "properties": {
+                    "name": [
+                        "Omar Rizwan"],
+                    "birthDate": ["2012-10-27"]
+                }
+
+            }]
+}

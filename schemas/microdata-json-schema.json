@@ -3,22 +3,28 @@
     "properties": {
         "items": {
             "type": "array",
-            "items": [
-                {
-                    "allOf": [
-                        {
-                            "anyOf": [
-                                { "$ref": "#/definitions/CreativeWork" },
-                                { "$ref": "#/definitions/Thing" }
-                            ]      
+            "items": {
+                "allOf": [
+                    {
+                        "required": ["id", "type", "properties"],
+                        "patternProperties": {
+                            "id|type|properties": { }
                         },
-                        {
-                            "required": ["id"]
-                        }
-                    ]
-                }
-            ],
-            "additionalItems": false
+                        "additionalProperties": false
+                    },
+                    {
+                        "$ref": "#/definitions/microdata"
+                    },
+                    {
+                        "anyOf": [
+                            { "$ref": "#/definitions/CreativeWork" },
+                            { "$ref": "#/definitions/Thing" }
+                        ]      
+                    }
+                ]
+            },
+            "minItems": 1
+            
         }
     },
 
@@ -30,35 +36,26 @@
                 },
                 "type": {
                     "type": "array",
-                    "items": {
+                    "items": [{
                         "type": "string"
-                    },
+                    }],
                     "additionalItems": false
-
                 },
                 "properties": {
-                    "patternProperties": {
-                        ".*": {
-                            "type": "array",
-                            "items": [ 
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": [{
+                            "anyOf": [ 
+                                { 
+                                    "type": "string" 
+                                },
                                 {
-                                    "anyOf": [
-                                    {
-                    
-                                        "$ref": "#/definitions/microdata"
-                                    
-                                    }, 
-                                    { 
-                                        "type": "string" 
-                                    }
-
-                                    ]
+                                    "$ref": "#/definitions/microdata"
                                 }
-                
-                            ],
-                            "additionalItems": false
+                            ]
+                        }],
+                        "additionalItems": true
 
-                        }
                     }
                 }
             },

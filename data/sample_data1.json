@@ -1,0 +1,42 @@
+{
+    "items": [{
+        "type": [
+            "http://schema.org/CreativeWork"],
+        "id": "urn:www.khanacademy.org:node_slug:e/area_of_a_circle",
+        "properties": {
+            "name": [
+                "Area of a circle"],
+            "author": [{
+                "type": [
+                    "http://schema.org/Person"],
+                "properties": {
+                    "name": [
+                        "Omar Rizwan"]
+                }
+            }],
+            "url": [
+                "http://www.khanacademy.org/exercise/area_of_a_circle"],
+            "dateCreated": [
+                "2012-04-13T23:13:03Z"],
+            "educationalAlignment": [{
+                "type": [
+                    "http://schema.org/AlignmentObject"],
+                "id": "urn:corestandards.org:guid:8111E58EA0054B8C8DE2CF7AA27F2FD8",
+                "properties": {
+                    "alignmentType": [
+                        "teaches"],
+                    "educationalFramework": [
+                        "Common Core State Standards"],
+                    "targetName": [
+                        "CCSS.Math.Content.7.G.B.4"],
+                    "targetDescription": [
+                        "Know the formulas for the area and circumference of a circle and use them to solve problems; give an informal derivation of the relationship between the circumference and area of a circle."],
+                    "targetUrl": [
+                        "http://corestandards.org/Math/Content/7/G/B/4"]
+                }
+            }],
+            "learningResourceType": [
+                "exercise"]
+        }
+    }]
+}

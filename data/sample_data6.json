@@ -1,0 +1,49 @@
+{
+    "items": [{
+        "type": ["http://schema.org/CreativeWork"],
+        "id": "urn:www.khanacademy.org:node_slug:v/writing-and-using-inequalities-2",
+        "properties": {
+            "name": ["Writing and using inequalities 2"],
+            "author": [{
+                "type": ["http://schema.org/Person"],
+                "properties": {
+                    "name": ["Sal Khan"]
+                }
+            }, {
+                "type": ["http://schema.org/Person"],
+                "properties": {
+                    "name": ["Monterey Institute for Technology and Education"]
+                }
+            }],
+            "url": ["http://www.khanacademy.org/video/writing-and-using-inequalities-2"],
+            "interactionCount": ["28103 UserPlays"],
+            "datePublished": ["2011-02-20T16:28:11Z"],
+            "educationalAlignment": [{
+                "type": ["http://schema.org/AlignmentObject"],
+                "id": "urn:corestandards.org:guid:666AA11DF39241C68112FFBE28D811C4",
+                "properties": {
+                    "alignmentType": ["teaches"],
+                    "educationalFramework": ["Common Core State Standards"],
+                    "targetName": ["CCSS.Math.Content.6.EE.B.6"],
+                    "targetDescription": ["Use variables to represent numbers and write expressions when solving a real-world or mathematical problem; understand that a variable can represent an unknown number, or, depending on the purpose at hand, any number in a specified set."],
+                    "targetUrl": ["http://corestandards.org/Math/Content/6/EE/B/6"]
+                }
+            }],
+            "learningResourceType": ["video"],
+            "video": [{
+                "id": "urn:www.youtube.com:videoid:cCMpin3Te4s",
+                "type": ["http://schema.org/VideoObject"],
+                "playerType": ["youtube"],
+                "properties": {
+                    "url": ["http://www.youtube.com/watch?v=cCMpin3Te4s&feature=youtube_gdata_player"],
+                    "contentUrl": ["http://s3.amazonaws.com/KA-youtube-converted/cCMpin3Te4s.mp4/cCMpin3Te4s.mp4"],
+                    "thumbnailUrl": ["http://s3.amazonaws.com/KA-youtube-converted/cCMpin3Te4s.mp4/cCMpin3Te4s.png","http://s3.amazonaws.com/KA-youtube-converted/cCMpin3Te4s.mp4/cCMpin3Te4s.png"],
+                    "encodingFormat": ["mpeg4"]
+                }
+            }],
+            "keywords": ["U05_L1_T3_we2, Writing, and, using, inequalities, CC_6_EE_6, CC_6_EE_8, CC_7_EE_4, CC_7_EE_4_b, CC_39336_A-CED_1, CC_39336_A-CED_3, CC_39336_A-REI_3"],
+            "thumbnailUrl": ["http://s3.amazonaws.com/KA-youtube-converted/cCMpin3Te4s.mp4/cCMpin3Te4s.png"],
+            "description": ["Writing and using inequalities 2"]
+        }
+    }]
+}

@@ -1,0 +1,10 @@
+{
+    "items": [{
+                "id": "foobar",
+                "type": ["http://schema.org/Person"],
+                "properties": {
+                    "birthDate": ["z"]
+                }
+
+            }]
+}

@@ -1,14 +1,14 @@
 #! /usr/bin/env python
 
-import urllib2, json, pprint, jsonschema, jsonpatch
+import argparse, urllib2, json, pprint, jsonschema, jsonpatch
 
-all_schema_org = json.load(urllib2.urlopen("http://schema.rdfs.org/all.json"))
+# all_schema_org = json.load(urllib2.urlopen("http://schema.rdfs.org/all.json"))
 
-# all_schema_org = json.load(open("schemas/schema-rdfs-org.json"))
+all_schema_org = json.load(open("schemas/schema-rdfs-org.json"))
 
 lrmi_mixin = json.load(open("schemas/lrmi-json-microdata-mixin.json"))
 
-log = open("lrmi.json", "w")
+log = None
 
 json_schema = json.load(open("schemas/microdata-json-schema.json"))
 
@@ -19,13 +19,14 @@ def get_prop_schema(prop_name):
         "title": prop_def["label"],
         "description": prop_def["comment_plain"],
         "type": "array",
-        "additionalItems": False
+        "items": {},
+        "additionalItems": True
     }
 
-    if prop_name == "acceptedPaymentMethod":
-        import pdb; pdb.set_trace()
+    # if prop_name == "acceptedPaymentMethod":
+    #     import pdb; pdb.set_trace()
 
-    prop_schema["items"] = get_schemas_for_ranges(prop_def["ranges"])
+    prop_schema["items"] =  get_schemas_for_ranges(prop_def["ranges"]) 
     return prop_def["id"], prop_schema
 
 def get_schemas_for_ranges(ranges=[]):
@@ -109,6 +110,19 @@ def find_subtypes(type_def, type_list=[]):
 
     return type_list
 
+def find_subtype_ids(type_def, type_list=[]):
+    if "id" in type_def and type_def["id"] not in type_list:
+        type_list.append(type_def["id"])
+
+    try:
+        for subtype in type_def["subtypes"]:
+            subtype_def = all_schema_org["types"][subtype]
+            type_list = find_subtype_ids(subtype_def, type_list)
+    except:
+        pass
+
+    return type_list
+
 
 
 
@@ -117,11 +131,22 @@ def get_type_schema(type_def):
     type_schema = {
         "title": type_def["label"],
         "description": type_def["comment_plain"],
-        "allOf":
-            [ { "$ref": "#/definitions/microdata" } ]
+        "allOf": []
+            # [ { "$ref": "#/definitions/microdata" } ]
         
     }
     
+    propset_name = "propset_{0}".format(type_def["id"])
+    this_propset = {}
+    for spec_prop in type_def["specific_properties"]:
+        prop_name, prop_def = get_prop_schema(spec_prop)
+
+        this_propset[prop_name] = prop_def
+
+    json_schema["definitions"][propset_name] = {
+        "properties": this_propset
+    }
+
 
     if "instances" in type_def:
         type_inst = {
@@ -134,25 +159,56 @@ def get_type_schema(type_def):
     else:
         this_schema = {
             "properties": {
+                "id": { "type": "string" },
                 "type": {
-                    "type": "array",
-                    "items": {
-                        "enum": [type_def["url"]]
-                    },
-                    "additionalItems": False
+                    "enum": [[type_def["url"]]]
                 },
-                "properties": { }
-            }
+                "properties": { },
+                
+            },
+            "required": ["type", "properties"],
+            "additionalProperties": False
         }
+        this_schema["properties"]["properties"]["allOf"] = []
+        
 
         if len(type_def["properties"]) > 0:
-            this_schema["properties"]["properties"]["properties"] = { }
+            this_schema["properties"]["properties"]["additionalProperties"] = False
+            # this_schema["properties"]["properties"]["properties"] = {}
+            patterns = "^({0})$".format("|".join(type_def["properties"]))
+            
+            this_schema["properties"]["properties"]["patternProperties"] = {
+                patterns : {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "anyOf":[
+                            { "$ref": "#/definitions/microdata" },
+                            { "type": "string" }
+                        ]
+                    },
+                    "additionalItems": True
+                }
+            }
 
-        for spec_prop in type_def["properties"]:
-            prop_name, prop_def = get_prop_schema(spec_prop)
-            this_schema["properties"]["properties"]["properties"][prop_name] = prop_def
+        # if len(type_def["specific_properties"]) > 0 or len(type_def["supertypes"]) > 0:
+        #     this_schema["properties"]["properties"]["anyOf"] = []
 
-        type_schema["allOf"].append(this_schema)
+       
+            # this_schema["properties"]["properties"]["properties"][prop_name] = prop_def
+
+        if len(this_propset.keys()) >= 0:
+            
+            this_schema["properties"]["properties"]["allOf"].append({"$ref": "#/definitions/{0}".format(propset_name)})
+
+        if len(type_def["supertypes"]) > 0:
+            this_schema["properties"]["properties"]["allOf"] += map(lambda x: { "$ref": "#/definitions/propset_{0}".format(x)}, type_def["supertypes"])
+
+
+        type_schema.update(this_schema)
+        del type_schema["allOf"]
+        # type_schema["allOf"].append(this_schema)
+
 
     # if len(type_def["supertypes"]) > 0:
     #     type_schema["anyOf"] = map(lambda x: { "$ref": "#/definitions/{0}".format(x)}, type_def["supertypes"])
@@ -161,9 +217,9 @@ def get_type_schema(type_def):
 
 
 def init():
-    global json_schema
-
-    json_schema["properties"]["items"]["items"][0]["allOf"][0]["anyOf"] = []
+    global json_schema, log
+    log = open("lrmi.json", "w")
+    json_schema["properties"]["items"]["items"]["allOf"][2]["anyOf"] = []
     microdata = json_schema["definitions"]["microdata"]
     json_schema["definitions"] = { "microdata": microdata }
 
@@ -177,12 +233,20 @@ def processTypes():
     for type_name, type_def in all_schema_org["types"].items():
         type_schema = get_type_schema(type_def)     
         json_schema["definitions"][type_name] = type_schema
-        if "enum" not in type_schema:
-            json_schema["properties"]["items"]["items"][0]["allOf"][0]["anyOf"].append(
-                {
-                    "$ref": "#/definitions/{0}".format(type_name)
-                }
-            )
+        # if "enum" not in type_schema:
+        #     json_schema["properties"]["items"]["additionalItems"]["allOf"][0]["oneOf"].append(
+        #         {
+        #             "$ref": "#/definitions/{0}".format(type_name)
+        #         }
+        #     )
+        
+        if type_name in ["CreativeWork", "EducationalAudience", "Person", "Organization", "Event"]:
+            for type_id in find_subtype_ids(type_def, []):
+                json_schema["properties"]["items"]["items"]["allOf"][2]["anyOf"].append(
+                    {
+                        "$ref": "#/definitions/{0}".format(type_id)
+                    }
+                )
 
 # def mixin():
 #     for schema_ref in lrmi_mixin["properties"]["items"]["items"]["oneOf"]:
@@ -202,8 +266,35 @@ def patch():
     json_schema = jsonpatch.apply_patch(json_schema, lrmi_mixin)
 
 
+def validateTests(schema):
+    validate(jsonschema.Draft4Validator.META_SCHEMA, "./lrmi.json")
+
+    validate(schema, "./data/sample_data1.json")
+    # import pdb; pdb.set_trace()
+    validate(schema, "./data/sample_data2.json")
+    validate(schema, "./data/sample_data3.json")
+    validate(schema, "./data/sample_data4.json")
+    validate(schema, "./data/sample_data5.json")
+    validate(schema, "./data/sample_data6.json")
+    validate(schema, "./data/sample_data7.json")
+
+def validate(schema, instance_file):
+
+    print "\n\n\n\n##### validating instance from {0} ######".format(instance_file)
+    validator = jsonschema.Draft4Validator(schema, format_checker=jsonschema.FormatChecker())
+
+    with open(instance_file) as f:
+        inst = json.load(f)
+        print json.dumps(inst)
+        errors = sorted(validator.iter_errors(inst), key=lambda e: e.path)
+        for idx, err in enumerate(errors, 1):
+            print "{0}. {1}\n".format(idx, err)
+        # for idx, err in enumerate(validator.iter_errors(inst), 1):
+        #     print "{0}. {1}\n".format(idx, pprint.pformat(err))
+
+
 def main():
-    validator = jsonschema.Draft4Validator(jsonschema.Draft4Validator.META_SCHEMA)
+    validator = jsonschema.Draft4Validator(jsonschema.Draft4Validator.META_SCHEMA, format_checker=jsonschema.FormatChecker())
 
     init()
 
@@ -221,32 +312,36 @@ def main():
     processTypes()
     patch()
 
-    log.write(json.dumps(json_schema, indent=2))
+    log.write(json.dumps(json_schema, indent=4))
+    log.close()
 
-    print "##### populated #######"
+    print "##### done #######"
 
-    for err in validator.iter_errors(json_schema):
-        pprint.pprint(err)
+ 
+    validateTests(json_schema)
+        
     # jsonschema.Draft4Validator.check_schema(json_schema)
 
 
-def test():
-    validator = jsonschema.Draft4Validator(jsonschema.Draft4Validator.META_SCHEMA)
+def just_valid():
+    with open("lrmi.json") as f:
+        schema = json.load(f)
+        validateTests(schema)
 
-    js_float = {
-        "type": "number",
-        "not": {
-            "type": "integer"
-        }
-    }
-
-    for err in validator.iter_errors(js_float):
-        pprint.pprint(err)
 
 # pprint.pprint(all_schema_org)
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--regen', '-r', help="regen schema", action="store_true", default=False)
+    parser.add_argument('--test', '-t', help="test schema", action="store_true", default=False)
+    args = parser.parse_args()
+    if args.regen and not args.test:
+        main()
+    else:
+        just_valid()
+
+    # main()
     # print(find_subtypes(all_schema_org["types"]["CreativeWork"]))
 
 
