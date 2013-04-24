@@ -542,6 +542,18 @@
         "Text"
       ]
     }, 
+    "alignmentType": {
+      "comment": "A category of alignment between the learning resource and the framework node. Recommended values include: 'assesses', 'teaches', 'requires', 'textComplexity', 'readingLevel', 'educationalSubject', and 'educationLevel'.", 
+      "comment_plain": "A category of alignment between the learning resource and the framework node. Recommended values include: 'assesses', 'teaches', 'requires', 'textComplexity', 'readingLevel', 'educationalSubject', and 'educationLevel'.", 
+      "domains": [
+        "AlignmentObject"
+      ], 
+      "id": "alignmentType", 
+      "label": "Alignment Type", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
     "alternateName": {
       "comment": "Any alternate name for this medical entity.", 
       "comment_plain": "Any alternate name for this medical entity.", 
@@ -738,6 +750,30 @@
         "Text"
       ]
     }, 
+    "assembly": {
+      "comment": "Library file name e.g., mscorlib.dll, system.web.dll", 
+      "comment_plain": "Library file name e.g., mscorlib.dll, system.web.dll", 
+      "domains": [
+        "APIReference"
+      ], 
+      "id": "assembly", 
+      "label": "Assembly", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
+    "assemblyVersion": {
+      "comment": "Associated product/technology version. e.g., .NET Framework 4.5", 
+      "comment_plain": "Associated product/technology version. e.g., .NET Framework 4.5", 
+      "domains": [
+        "APIReference"
+      ], 
+      "id": "assemblyVersion", 
+      "label": "Assembly Version", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
     "associatedAnatomy": {
       "comment": "The anatomy of the underlying organ system or structures associated with this entity.", 
       "comment_plain": "The anatomy of the underlying organ system or structures associated with this entity.", 
@@ -818,9 +854,10 @@
       ]
     }, 
     "audience": {
-      "comment": "The intended audience of the work, i.e. the group for whom the work was created.", 
-      "comment_plain": "The intended audience of the work, i.e. the group for whom the work was created.", 
+      "comment": "The intended audience of the item, i.e. the group for whom the item was created.", 
+      "comment_plain": "The intended audience of the item, i.e. the group for whom the item was created.", 
       "domains": [
+        "Product", 
         "CreativeWork"
       ], 
       "id": "audience", 
@@ -1330,6 +1367,18 @@
         "Text"
       ]
     }, 
+    "catalog": {
+      "comment": "A data catalog which contains a dataset.", 
+      "comment_plain": "A data catalog which contains a dataset.", 
+      "domains": [
+        "Dataset"
+      ], 
+      "id": "catalog", 
+      "label": "Catalog", 
+      "ranges": [
+        "DataCatalog"
+      ]
+    }, 
     "category": {
       "comment": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.", 
       "comment_plain": "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.", 
@@ -1368,6 +1417,30 @@
       "label": "Cause of", 
       "ranges": [
         "MedicalEntity"
+      ]
+    }, 
+    "childMaxAge": {
+      "comment": "Maximal age of the child", 
+      "comment_plain": "Maximal age of the child", 
+      "domains": [
+        "ParentAudience"
+      ], 
+      "id": "childMaxAge", 
+      "label": "Child Max Age", 
+      "ranges": [
+        "Number"
+      ]
+    }, 
+    "childMinAge": {
+      "comment": "Minimal age of the child", 
+      "comment_plain": "Minimal age of the child", 
+      "domains": [
+        "ParentAudience"
+      ], 
+      "id": "childMinAge", 
+      "label": "Child Min Age", 
+      "ranges": [
+        "Number"
       ]
     }, 
     "children": {
@@ -1453,6 +1526,18 @@
       "label": "Code", 
       "ranges": [
         "MedicalCode"
+      ]
+    }, 
+    "codeRepository": {
+      "comment": "Link to the repository where the un-compiled, human readable code and related code is located (SVN, github, CodePlex)", 
+      "comment_plain": "Link to the repository where the un-compiled, human readable code and related code is located (SVN, github, CodePlex)", 
+      "domains": [
+        "Code"
+      ], 
+      "id": "codeRepository", 
+      "label": "Code Repository", 
+      "ranges": [
+        "URL"
       ]
     }, 
     "codeValue": {
@@ -1860,6 +1945,18 @@
         "Text"
       ]
     }, 
+    "dataset": {
+      "comment": "A dataset contained in a catalog.", 
+      "comment_plain": "A dataset contained in a catalog.", 
+      "domains": [
+        "DataCatalog"
+      ], 
+      "id": "dataset", 
+      "label": "Dataset", 
+      "ranges": [
+        "Dataset"
+      ]
+    }, 
     "dateCreated": {
       "comment": "The date on which the CreativeWork was created.", 
       "comment_plain": "The date on which the CreativeWork was created.", 
@@ -1955,6 +2052,18 @@
       "label": "Delivery Lead Time", 
       "ranges": [
         "QuantitativeValue"
+      ]
+    }, 
+    "dependencies": {
+      "comment": "Prerequisites needed to fulfill steps in article.", 
+      "comment_plain": "Prerequisites needed to fulfill steps in article.", 
+      "domains": [
+        "TechArticle"
+      ], 
+      "id": "dependencies", 
+      "label": "Dependencies", 
+      "ranges": [
+        "Text"
       ]
     }, 
     "depth": {
@@ -2090,6 +2199,30 @@
       "label": "Distinguishing Sign", 
       "ranges": [
         "MedicalSignOrSymptom"
+      ]
+    }, 
+    "distribution": {
+      "comment": "A downloadable form of this dataset, at a specific location, in a specific format.", 
+      "comment_plain": "A downloadable form of this dataset, at a specific location, in a specific format.", 
+      "domains": [
+        "Dataset"
+      ], 
+      "id": "distribution", 
+      "label": "Distribution", 
+      "ranges": [
+        "DataDownload"
+      ]
+    }, 
+    "domainIncludes": {
+      "comment": "Relates a property to a class that is (one of) the type(s) the property is expected to be used on.", 
+      "comment_plain": "Relates a property to a class that is (one of) the type(s) the property is expected to be used on.", 
+      "domains": [
+        "Property"
+      ], 
+      "id": "domainIncludes", 
+      "label": "Domain Includes", 
+      "ranges": [
+        "Class"
       ]
     }, 
     "dosageForm": {
@@ -2273,6 +2406,54 @@
       ], 
       "id": "educationRequirements", 
       "label": "Education Requirements", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
+    "educationalAlignment": {
+      "comment": "An alignment to an established educational framework.", 
+      "comment_plain": "An alignment to an established educational framework.", 
+      "domains": [
+        "CreativeWork"
+      ], 
+      "id": "educationalAlignment", 
+      "label": "Educational Alignment", 
+      "ranges": [
+        "AlignmentObject"
+      ]
+    }, 
+    "educationalFramework": {
+      "comment": "The framework to which the resource being described is aligned.", 
+      "comment_plain": "The framework to which the resource being described is aligned.", 
+      "domains": [
+        "AlignmentObject"
+      ], 
+      "id": "educationalFramework", 
+      "label": "Educational Framework", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
+    "educationalRole": {
+      "comment": "An educationalRole of an EducationalAudience", 
+      "comment_plain": "An educationalRole of an EducationalAudience", 
+      "domains": [
+        "EducationalAudience"
+      ], 
+      "id": "educationalRole", 
+      "label": "Educational Role", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
+    "educationalUse": {
+      "comment": "The purpose of a work in the context of education; for example, 'assignment', 'group work'.", 
+      "comment_plain": "The purpose of a work in the context of education; for example, 'assignment', 'group work'.", 
+      "domains": [
+        "CreativeWork"
+      ], 
+      "id": "educationalUse", 
+      "label": "Educational Use", 
       "ranges": [
         "Text"
       ]
@@ -3080,6 +3261,18 @@
         "Text"
       ]
     }, 
+    "healthCondition": {
+      "comment": "Expectations for health conditions of target audience", 
+      "comment_plain": "Expectations for health conditions of target audience", 
+      "domains": [
+        "PeopleAudience"
+      ], 
+      "id": "healthCondition", 
+      "label": "Health Condition", 
+      "ranges": [
+        "MedicalCondition"
+      ]
+    }, 
     "height": {
       "comment": "The height of the item.", 
       "comment_plain": "The height of the item.", 
@@ -3449,6 +3642,18 @@
         "Text"
       ]
     }, 
+    "interactivityType": {
+      "comment": "The predominant mode of learning supported by the learning resource. Acceptable values are 'active', 'expositive', or 'mixed'.", 
+      "comment_plain": "The predominant mode of learning supported by the learning resource. Acceptable values are 'active', 'expositive', or 'mixed'.", 
+      "domains": [
+        "CreativeWork"
+      ], 
+      "id": "interactivityType", 
+      "label": "Interactivity Type", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
     "inventoryLevel": {
       "comment": "The current approximate inventory level for the item or items.", 
       "comment_plain": "The current approximate inventory level for the item or items.", 
@@ -3485,6 +3690,18 @@
       "label": "Is Available Generically", 
       "ranges": [
         "Boolean"
+      ]
+    }, 
+    "isBasedOnUrl": {
+      "comment": "A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html", 
+      "comment_plain": "A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html", 
+      "domains": [
+        "CreativeWork"
+      ], 
+      "id": "isBasedOnUrl", 
+      "label": "Is Based On Url", 
+      "ranges": [
+        "URL"
       ]
     }, 
     "isConsumableFor": {
@@ -3744,6 +3961,18 @@
       "label": "Latitude", 
       "ranges": [
         "Number", 
+        "Text"
+      ]
+    }, 
+    "learningResourceType": {
+      "comment": "The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.", 
+      "comment_plain": "The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.", 
+      "domains": [
+        "CreativeWork"
+      ], 
+      "id": "learningResourceType", 
+      "label": "Learning Resource Type", 
+      "ranges": [
         "Text"
       ]
     }, 
@@ -5104,6 +5333,42 @@
         "Organization"
       ]
     }, 
+    "proficiencyLevel": {
+      "comment": "Proficiency needed for this content; expected values: 'Beginner', 'Expert'.", 
+      "comment_plain": "Proficiency needed for this content; expected values: 'Beginner', 'Expert'.", 
+      "domains": [
+        "TechArticle"
+      ], 
+      "id": "proficiencyLevel", 
+      "label": "Proficiency Level", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
+    "programmingLanguage": {
+      "comment": "The computer programming language.", 
+      "comment_plain": "The computer programming language.", 
+      "domains": [
+        "Code"
+      ], 
+      "id": "programmingLanguage", 
+      "label": "Programming Language", 
+      "ranges": [
+        "Thing"
+      ]
+    }, 
+    "programmingModel": {
+      "comment": "Indicates whether API is managed or unmanaged.", 
+      "comment_plain": "Indicates whether API is managed or unmanaged.", 
+      "domains": [
+        "APIReference"
+      ], 
+      "id": "programmingModel", 
+      "label": "Programming Model", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
     "proprietaryName": {
       "comment": "Proprietary name given to the diet plan, typically by its originator or creator.", 
       "comment_plain": "Proprietary name given to the diet plan, typically by its originator or creator.", 
@@ -5199,6 +5464,18 @@
       "label": "Qualifications", 
       "ranges": [
         "Text"
+      ]
+    }, 
+    "rangeIncludes": {
+      "comment": "Relates a property to a class that constitutes (one of) the expected type(s) for values of the property.", 
+      "comment_plain": "Relates a property to a class that constitutes (one of) the expected type(s) for values of the property.", 
+      "domains": [
+        "Property"
+      ], 
+      "id": "rangeIncludes", 
+      "label": "Range Includes", 
+      "ranges": [
+        "Class"
       ]
     }, 
     "ratingCount": {
@@ -5663,6 +5940,18 @@
         "Vessel"
       ]
     }, 
+    "runtime": {
+      "comment": "Runtime platform or script interpreter dependencies (Example - Java v1, Python2.3, .Net Framework 3.0)", 
+      "comment_plain": "Runtime platform or script interpreter dependencies (Example - Java v1, Python2.3, .Net Framework 3.0)", 
+      "domains": [
+        "Code"
+      ], 
+      "id": "runtime", 
+      "label": "Runtime", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
     "safetyConsideration": {
       "comment": "Any potential safety concern associated with the supplement. May include interactions with other drugs and foods, pregnancy, breastfeeding, known adverse reactions, and documented efficacy of the supplement.", 
       "comment_plain": "Any potential safety concern associated with the supplement. May include interactions with other drugs and foods, pregnancy, breastfeeding, known adverse reactions, and documented efficacy of the supplement.", 
@@ -5683,6 +5972,18 @@
       ], 
       "id": "salaryCurrency", 
       "label": "Salary Currency", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
+    "sampleType": {
+      "comment": "Full (compile ready) solution, code snippet, inline code, scripts, template.", 
+      "comment_plain": "Full (compile ready) solution, code snippet, inline code, scripts, template.", 
+      "domains": [
+        "Code"
+      ], 
+      "id": "sampleType", 
+      "label": "Sample Type", 
       "ranges": [
         "Text"
       ]
@@ -6021,6 +6322,18 @@
         "BrainStructure"
       ]
     }, 
+    "spatial": {
+      "comment": "The range of spatial applicability of a dataset, e.g. for a dataset of New York weather, the state of New York.", 
+      "comment_plain": "The range of spatial applicability of a dataset, e.g. for a dataset of New York weather, the state of New York.", 
+      "domains": [
+        "Dataset"
+      ], 
+      "id": "spatial", 
+      "label": "Spatial", 
+      "ranges": [
+        "Place"
+      ]
+    }, 
     "specialCommitments": {
       "comment": "Any special commitments associated with this job posting. Valid entries include VeteranCommit, MilitarySpouseCommit, etc.", 
       "comment_plain": "Any special commitments associated with this job posting. Valid entries include VeteranCommit, MilitarySpouseCommit, etc.", 
@@ -6324,6 +6637,42 @@
         "Mass"
       ]
     }, 
+    "suggestedGender": {
+      "comment": "The gender of the person or audience.", 
+      "comment_plain": "The gender of the person or audience.", 
+      "domains": [
+        "PeopleAudience"
+      ], 
+      "id": "suggestedGender", 
+      "label": "Suggested Gender", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
+    "suggestedMaxAge": {
+      "comment": "Maximal age recommended for viewing content", 
+      "comment_plain": "Maximal age recommended for viewing content", 
+      "domains": [
+        "PeopleAudience"
+      ], 
+      "id": "suggestedMaxAge", 
+      "label": "Suggested Max Age", 
+      "ranges": [
+        "Number"
+      ]
+    }, 
+    "suggestedMinAge": {
+      "comment": "Minimal age recommended for viewing content", 
+      "comment_plain": "Minimal age recommended for viewing content", 
+      "domains": [
+        "PeopleAudience"
+      ], 
+      "id": "suggestedMinAge", 
+      "label": "Suggested Min Age", 
+      "ranges": [
+        "Number"
+      ]
+    }, 
     "superEvent": {
       "comment": "An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent.", 
       "comment_plain": "An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent.", 
@@ -6348,6 +6697,42 @@
         "AnatomicalStructure"
       ]
     }, 
+    "targetDescription": {
+      "comment": "The description of a node in an established educational framework.", 
+      "comment_plain": "The description of a node in an established educational framework.", 
+      "domains": [
+        "AlignmentObject"
+      ], 
+      "id": "targetDescription", 
+      "label": "Target Description", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
+    "targetName": {
+      "comment": "The name of a node in an established educational framework.", 
+      "comment_plain": "The name of a node in an established educational framework.", 
+      "domains": [
+        "AlignmentObject"
+      ], 
+      "id": "targetName", 
+      "label": "Target Name", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
+    "targetPlatform": {
+      "comment": "Type of app development: phone, Metro style, desktop, XBox, etc.", 
+      "comment_plain": "Type of app development: phone, Metro style, desktop, XBox, etc.", 
+      "domains": [
+        "APIReference"
+      ], 
+      "id": "targetPlatform", 
+      "label": "Target Platform", 
+      "ranges": [
+        "Text"
+      ]
+    }, 
     "targetPopulation": {
       "comment": "Characteristics of the population for which this is intended, or which typically uses it, e.g. 'adults'.", 
       "comment_plain": "Characteristics of the population for which this is intended, or which typically uses it, e.g. 'adults'.", 
@@ -6359,6 +6744,30 @@
       "label": "Target Population", 
       "ranges": [
         "Text"
+      ]
+    }, 
+    "targetProduct": {
+      "comment": "Target Operating System / Product to which the code applies.  If applies to several versions, just the product name can be used.", 
+      "comment_plain": "Target Operating System / Product to which the code applies.  If applies to several versions, just the product name can be used.", 
+      "domains": [
+        "Code"
+      ], 
+      "id": "targetProduct", 
+      "label": "Target Product", 
+      "ranges": [
+        "SoftwareApplication"
+      ]
+    }, 
+    "targetUrl": {
+      "comment": "The URL of a node in an established educational framework.", 
+      "comment_plain": "The URL of a node in an established educational framework.", 
+      "domains": [
+        "AlignmentObject"
+      ], 
+      "id": "targetUrl", 
+      "label": "Target Url", 
+      "ranges": [
+        "URL"
       ]
     }, 
     "taxID": {
@@ -6387,6 +6796,18 @@
       "label": "Telephone", 
       "ranges": [
         "Text"
+      ]
+    }, 
+    "temporal": {
+      "comment": "The range of temporal applicability of a dataset, e.g. for a 2011 census dataset, the year 2011 (in ISO 8601 time interval format).", 
+      "comment_plain": "The range of temporal applicability of a dataset, e.g. for a 2011 census dataset, the year 2011 (in ISO 8601 time interval format).", 
+      "domains": [
+        "Dataset"
+      ], 
+      "id": "temporal", 
+      "label": "Temporal", 
+      "ranges": [
+        "DateTime"
       ]
     }, 
     "text": {
@@ -6436,6 +6857,18 @@
       "label": "Ticker Symbol", 
       "ranges": [
         "Text"
+      ]
+    }, 
+    "timeRequired": {
+      "comment": "Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience, e.g. 'P30M', 'P1H25M'.", 
+      "comment_plain": "Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience, e.g. 'P30M', 'P1H25M'.", 
+      "domains": [
+        "CreativeWork"
+      ], 
+      "id": "timeRequired", 
+      "label": "Time Required", 
+      "ranges": [
+        "Duration"
       ]
     }, 
     "tissueSample": {
@@ -6587,6 +7020,18 @@
       "label": "Type of Good", 
       "ranges": [
         "Product"
+      ]
+    }, 
+    "typicalAgeRange": {
+      "comment": "The typical range of ages the content's intendedEndUser, for example '7-9', '11-'.", 
+      "comment_plain": "The typical range of ages the content's intendedEndUser, for example '7-9', '11-'.", 
+      "domains": [
+        "CreativeWork"
+      ], 
+      "id": "typicalAgeRange", 
+      "label": "Typical Age Range", 
+      "ranges": [
+        "Text"
       ]
     }, 
     "typicalTest": {
@@ -6944,6 +7389,94 @@
     }
   }, 
   "types": {
+    "APIReference": {
+      "ancestors": [
+        "Thing", 
+        "CreativeWork", 
+        "Article", 
+        "TechArticle"
+      ], 
+      "comment": "Reference documentation for application programming interfaces (APIs).", 
+      "comment_plain": "Reference documentation for application programming interfaces (APIs).", 
+      "id": "APIReference", 
+      "label": "API Reference", 
+      "properties": [
+        "additionalType", 
+        "description", 
+        "image", 
+        "name", 
+        "url", 
+        "about", 
+        "accountablePerson", 
+        "aggregateRating", 
+        "alternativeHeadline", 
+        "associatedMedia", 
+        "audience", 
+        "audio", 
+        "author", 
+        "award", 
+        "awards", 
+        "comment", 
+        "contentLocation", 
+        "contentRating", 
+        "contributor", 
+        "copyrightHolder", 
+        "copyrightYear", 
+        "creator", 
+        "dateCreated", 
+        "dateModified", 
+        "datePublished", 
+        "discussionUrl", 
+        "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
+        "encoding", 
+        "encodings", 
+        "genre", 
+        "headline", 
+        "inLanguage", 
+        "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
+        "isFamilyFriendly", 
+        "keywords", 
+        "learningResourceType", 
+        "mentions", 
+        "offers", 
+        "provider", 
+        "publisher", 
+        "publishingPrinciples", 
+        "review", 
+        "reviews", 
+        "sourceOrganization", 
+        "text", 
+        "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
+        "version", 
+        "video", 
+        "articleBody", 
+        "articleSection", 
+        "wordCount", 
+        "dependencies", 
+        "proficiencyLevel", 
+        "assembly", 
+        "assemblyVersion", 
+        "programmingModel", 
+        "targetPlatform"
+      ], 
+      "specific_properties": [
+        "assembly", 
+        "assemblyVersion", 
+        "programmingModel", 
+        "targetPlatform"
+      ], 
+      "subtypes": [], 
+      "supertypes": [
+        "TechArticle"
+      ], 
+      "url": "http://schema.org/APIReference"
+    }, 
     "AboutPage": {
       "ancestors": [
         "Thing", 
@@ -6982,14 +7515,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -7000,6 +7538,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "breadcrumb", 
@@ -7352,6 +7892,40 @@
         "CivicStructure"
       ], 
       "url": "http://schema.org/Airport"
+    }, 
+    "AlignmentObject": {
+      "ancestors": [
+        "Thing", 
+        "Intangible"
+      ], 
+      "comment": "An intangible item that describes an alignment between a learning resource and a node in an educational framework.", 
+      "comment_plain": "An intangible item that describes an alignment between a learning resource and a node in an educational framework.", 
+      "id": "AlignmentObject", 
+      "label": "Alignment Object", 
+      "properties": [
+        "additionalType", 
+        "description", 
+        "image", 
+        "name", 
+        "url", 
+        "alignmentType", 
+        "educationalFramework", 
+        "targetDescription", 
+        "targetName", 
+        "targetUrl"
+      ], 
+      "specific_properties": [
+        "alignmentType", 
+        "educationalFramework", 
+        "targetDescription", 
+        "targetName", 
+        "targetUrl"
+      ], 
+      "subtypes": [], 
+      "supertypes": [
+        "Intangible"
+      ], 
+      "url": "http://schema.org/AlignmentObject"
     }, 
     "AmusementPark": {
       "ancestors": [
@@ -7863,14 +8437,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -7881,6 +8460,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "articleBody", 
@@ -7895,7 +8476,8 @@
       "subtypes": [
         "BlogPosting", 
         "NewsArticle", 
-        "ScholarlyArticle"
+        "ScholarlyArticle", 
+        "TechArticle"
       ], 
       "supertypes": [
         "CreativeWork"
@@ -7977,9 +8559,12 @@
         "Thing", 
         "Intangible"
       ], 
-      "comment": "Intended audience for a creative work, i.e. the group for whom the work was created.", 
-      "comment_plain": "Intended audience for a creative work, i.e. the group for whom the work was created.", 
+      "comment": "Intended audience for an item, i.e. the group for whom the item was created.", 
+      "comment_plain": "Intended audience for an item, i.e. the group for whom the item was created.", 
       "id": "Audience", 
+      "instances": [
+        "Researcher"
+      ], 
       "label": "Audience", 
       "properties": [
         "additionalType", 
@@ -7990,7 +8575,9 @@
       ], 
       "specific_properties": [], 
       "subtypes": [
-        "MedicalAudience"
+        "EducationalAudience", 
+        "MedicalAudience", 
+        "PeopleAudience"
       ], 
       "supertypes": [
         "Intangible"
@@ -8035,14 +8622,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -8053,6 +8645,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "associatedArticle", 
@@ -9158,14 +9752,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -9176,6 +9775,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "blogPost", 
@@ -9229,14 +9830,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -9247,6 +9853,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "articleBody", 
@@ -9425,14 +10033,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -9443,6 +10056,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "bookEdition", 
@@ -10346,14 +10961,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -10364,6 +10984,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "breadcrumb", 
@@ -10694,6 +11316,28 @@
       ], 
       "url": "http://schema.org/CivicStructure"
     }, 
+    "Class": {
+      "ancestors": [
+        "Thing"
+      ], 
+      "comment": "A class, also often called a 'Type'; equivalent to rdfs:Class.", 
+      "comment_plain": "A class, also often called a 'Type'; equivalent to rdfs:Class.", 
+      "id": "Class", 
+      "label": "Class", 
+      "properties": [
+        "additionalType", 
+        "description", 
+        "image", 
+        "name", 
+        "url"
+      ], 
+      "specific_properties": [], 
+      "subtypes": [], 
+      "supertypes": [
+        "Thing"
+      ], 
+      "url": "http://schema.org/Class"
+    }, 
     "ClothingStore": {
       "ancestors": [
         "Thing", 
@@ -10764,6 +11408,89 @@
       ], 
       "url": "http://schema.org/ClothingStore"
     }, 
+    "Code": {
+      "ancestors": [
+        "Thing", 
+        "CreativeWork"
+      ], 
+      "comment": "Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates.", 
+      "comment_plain": "Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates.", 
+      "id": "Code", 
+      "label": "Code", 
+      "properties": [
+        "additionalType", 
+        "description", 
+        "image", 
+        "name", 
+        "url", 
+        "about", 
+        "accountablePerson", 
+        "aggregateRating", 
+        "alternativeHeadline", 
+        "associatedMedia", 
+        "audience", 
+        "audio", 
+        "author", 
+        "award", 
+        "awards", 
+        "comment", 
+        "contentLocation", 
+        "contentRating", 
+        "contributor", 
+        "copyrightHolder", 
+        "copyrightYear", 
+        "creator", 
+        "dateCreated", 
+        "dateModified", 
+        "datePublished", 
+        "discussionUrl", 
+        "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
+        "encoding", 
+        "encodings", 
+        "genre", 
+        "headline", 
+        "inLanguage", 
+        "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
+        "isFamilyFriendly", 
+        "keywords", 
+        "learningResourceType", 
+        "mentions", 
+        "offers", 
+        "provider", 
+        "publisher", 
+        "publishingPrinciples", 
+        "review", 
+        "reviews", 
+        "sourceOrganization", 
+        "text", 
+        "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
+        "version", 
+        "video", 
+        "codeRepository", 
+        "programmingLanguage", 
+        "runtime", 
+        "sampleType", 
+        "targetProduct"
+      ], 
+      "specific_properties": [
+        "codeRepository", 
+        "programmingLanguage", 
+        "runtime", 
+        "sampleType", 
+        "targetProduct"
+      ], 
+      "subtypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
+      "url": "http://schema.org/Code"
+    }, 
     "CollectionPage": {
       "ancestors": [
         "Thing", 
@@ -10802,14 +11529,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -10820,6 +11552,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "breadcrumb", 
@@ -11043,14 +11777,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -11061,6 +11800,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -11179,14 +11920,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -11197,6 +11943,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "breadcrumb", 
@@ -11548,14 +12296,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -11566,6 +12319,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -11592,14 +12347,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -11610,6 +12370,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -11617,7 +12379,10 @@
         "Article", 
         "Blog", 
         "Book", 
+        "Code", 
         "Comment", 
+        "DataCatalog", 
+        "Dataset", 
         "Diet", 
         "ExercisePlan", 
         "ItemList", 
@@ -11839,6 +12604,250 @@
         "PerformingGroup"
       ], 
       "url": "http://schema.org/DanceGroup"
+    }, 
+    "DataCatalog": {
+      "ancestors": [
+        "Thing", 
+        "CreativeWork"
+      ], 
+      "comment": "A collection of datasets.", 
+      "comment_plain": "A collection of datasets.", 
+      "id": "DataCatalog", 
+      "label": "Data Catalog", 
+      "properties": [
+        "additionalType", 
+        "description", 
+        "image", 
+        "name", 
+        "url", 
+        "about", 
+        "accountablePerson", 
+        "aggregateRating", 
+        "alternativeHeadline", 
+        "associatedMedia", 
+        "audience", 
+        "audio", 
+        "author", 
+        "award", 
+        "awards", 
+        "comment", 
+        "contentLocation", 
+        "contentRating", 
+        "contributor", 
+        "copyrightHolder", 
+        "copyrightYear", 
+        "creator", 
+        "dateCreated", 
+        "dateModified", 
+        "datePublished", 
+        "discussionUrl", 
+        "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
+        "encoding", 
+        "encodings", 
+        "genre", 
+        "headline", 
+        "inLanguage", 
+        "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
+        "isFamilyFriendly", 
+        "keywords", 
+        "learningResourceType", 
+        "mentions", 
+        "offers", 
+        "provider", 
+        "publisher", 
+        "publishingPrinciples", 
+        "review", 
+        "reviews", 
+        "sourceOrganization", 
+        "text", 
+        "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
+        "version", 
+        "video", 
+        "dataset"
+      ], 
+      "specific_properties": [
+        "dataset"
+      ], 
+      "subtypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
+      "url": "http://schema.org/DataCatalog"
+    }, 
+    "DataDownload": {
+      "ancestors": [
+        "Thing", 
+        "CreativeWork", 
+        "MediaObject"
+      ], 
+      "comment": "A dataset in downloadable form.", 
+      "comment_plain": "A dataset in downloadable form.", 
+      "id": "DataDownload", 
+      "label": "Data Download", 
+      "properties": [
+        "additionalType", 
+        "description", 
+        "image", 
+        "name", 
+        "url", 
+        "about", 
+        "accountablePerson", 
+        "aggregateRating", 
+        "alternativeHeadline", 
+        "associatedMedia", 
+        "audience", 
+        "audio", 
+        "author", 
+        "award", 
+        "awards", 
+        "comment", 
+        "contentLocation", 
+        "contentRating", 
+        "contributor", 
+        "copyrightHolder", 
+        "copyrightYear", 
+        "creator", 
+        "dateCreated", 
+        "dateModified", 
+        "datePublished", 
+        "discussionUrl", 
+        "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
+        "encoding", 
+        "encodings", 
+        "genre", 
+        "headline", 
+        "inLanguage", 
+        "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
+        "isFamilyFriendly", 
+        "keywords", 
+        "learningResourceType", 
+        "mentions", 
+        "offers", 
+        "provider", 
+        "publisher", 
+        "publishingPrinciples", 
+        "review", 
+        "reviews", 
+        "sourceOrganization", 
+        "text", 
+        "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
+        "version", 
+        "video", 
+        "associatedArticle", 
+        "bitrate", 
+        "contentSize", 
+        "contentUrl", 
+        "duration", 
+        "embedUrl", 
+        "encodesCreativeWork", 
+        "encodingFormat", 
+        "expires", 
+        "height", 
+        "playerType", 
+        "regionsAllowed", 
+        "requiresSubscription", 
+        "uploadDate", 
+        "width"
+      ], 
+      "specific_properties": [], 
+      "subtypes": [], 
+      "supertypes": [
+        "MediaObject"
+      ], 
+      "url": "http://schema.org/DataDownload"
+    }, 
+    "Dataset": {
+      "ancestors": [
+        "Thing", 
+        "CreativeWork"
+      ], 
+      "comment": "A body of structured information describing some topic(s) of interest.", 
+      "comment_plain": "A body of structured information describing some topic(s) of interest.", 
+      "id": "Dataset", 
+      "label": "Dataset", 
+      "properties": [
+        "additionalType", 
+        "description", 
+        "image", 
+        "name", 
+        "url", 
+        "about", 
+        "accountablePerson", 
+        "aggregateRating", 
+        "alternativeHeadline", 
+        "associatedMedia", 
+        "audience", 
+        "audio", 
+        "author", 
+        "award", 
+        "awards", 
+        "comment", 
+        "contentLocation", 
+        "contentRating", 
+        "contributor", 
+        "copyrightHolder", 
+        "copyrightYear", 
+        "creator", 
+        "dateCreated", 
+        "dateModified", 
+        "datePublished", 
+        "discussionUrl", 
+        "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
+        "encoding", 
+        "encodings", 
+        "genre", 
+        "headline", 
+        "inLanguage", 
+        "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
+        "isFamilyFriendly", 
+        "keywords", 
+        "learningResourceType", 
+        "mentions", 
+        "offers", 
+        "provider", 
+        "publisher", 
+        "publishingPrinciples", 
+        "review", 
+        "reviews", 
+        "sourceOrganization", 
+        "text", 
+        "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
+        "version", 
+        "video", 
+        "catalog", 
+        "distribution", 
+        "spatial", 
+        "temporal"
+      ], 
+      "specific_properties": [
+        "catalog", 
+        "distribution", 
+        "spatial", 
+        "temporal"
+      ], 
+      "subtypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
+      "url": "http://schema.org/Dataset"
     }, 
     "DayOfWeek": {
       "ancestors": [
@@ -12430,14 +13439,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -12448,6 +13462,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "dietFeatures", 
@@ -13083,6 +14099,33 @@
         "Event"
       ], 
       "url": "http://schema.org/EducationEvent"
+    }, 
+    "EducationalAudience": {
+      "ancestors": [
+        "Thing", 
+        "Intangible", 
+        "Audience"
+      ], 
+      "comment": "An EducationalAudience", 
+      "comment_plain": "An EducationalAudience", 
+      "id": "EducationalAudience", 
+      "label": "Educational Audience", 
+      "properties": [
+        "additionalType", 
+        "description", 
+        "image", 
+        "name", 
+        "url", 
+        "educationalRole"
+      ], 
+      "specific_properties": [
+        "educationalRole"
+      ], 
+      "subtypes": [], 
+      "supertypes": [
+        "Audience"
+      ], 
+      "url": "http://schema.org/EducationalAudience"
     }, 
     "EducationalOrganization": {
       "ancestors": [
@@ -13902,14 +14945,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -13920,6 +14968,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "activityDuration", 
@@ -16174,14 +17224,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -16192,6 +17247,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "breadcrumb", 
@@ -16250,14 +17307,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -16268,6 +17330,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "associatedArticle", 
@@ -16357,6 +17421,7 @@
         "name", 
         "url", 
         "aggregateRating", 
+        "audience", 
         "brand", 
         "color", 
         "depth", 
@@ -16573,6 +17638,7 @@
       ], 
       "specific_properties": [], 
       "subtypes": [
+        "AlignmentObject", 
         "Audience", 
         "Brand", 
         "Demand", 
@@ -16727,14 +17793,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -16745,6 +17816,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "itemListElement", 
@@ -16798,14 +17871,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -16816,6 +17894,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "breadcrumb", 
@@ -17800,14 +18880,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -17818,6 +18903,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -17925,14 +19012,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -17943,6 +19035,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "associatedArticle", 
@@ -17980,6 +19074,7 @@
       ], 
       "subtypes": [
         "AudioObject", 
+        "DataDownload", 
         "ImageObject", 
         "MusicVideoObject", 
         "VideoObject"
@@ -18000,8 +19095,8 @@
       "id": "MedicalAudience", 
       "instances": [
         "Clinician", 
-        "Patient", 
-        "Researcher"
+        "MedicalResearcher", 
+        "Patient"
       ], 
       "label": "Medical Audience", 
       "properties": [
@@ -18010,6 +19105,10 @@
         "image", 
         "name", 
         "url", 
+        "healthCondition", 
+        "suggestedGender", 
+        "suggestedMaxAge", 
+        "suggestedMinAge", 
         "alternateName", 
         "code", 
         "guideline", 
@@ -18021,6 +19120,7 @@
       "specific_properties": [], 
       "subtypes": [], 
       "supertypes": [
+        "PeopleAudience", 
         "Audience", 
         "MedicalEnumeration"
       ], 
@@ -19168,14 +20268,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -19186,6 +20291,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "articleBody", 
@@ -19740,14 +20847,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -19758,6 +20870,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "breadcrumb", 
@@ -19987,14 +21101,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -20005,6 +21124,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "applicationCategory", 
@@ -20443,14 +21564,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -20461,6 +21587,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "actor", 
@@ -20833,14 +21961,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -20851,6 +21984,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "numTracks", 
@@ -21007,14 +22142,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -21025,6 +22165,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "numTracks", 
@@ -21081,14 +22223,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -21099,6 +22246,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "byArtist", 
@@ -21270,14 +22419,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -21288,6 +22442,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "associatedArticle", 
@@ -21526,14 +22682,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -21544,6 +22705,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "articleBody", 
@@ -22343,14 +23506,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -22361,6 +23529,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -22436,6 +23606,40 @@
         "DeliveryMethod"
       ], 
       "url": "http://schema.org/ParcelService"
+    }, 
+    "ParentAudience": {
+      "ancestors": [
+        "Thing", 
+        "Intangible", 
+        "Audience", 
+        "PeopleAudience"
+      ], 
+      "comment": "A set of characteristics describing parents, who can be interested in viewing some content", 
+      "comment_plain": "A set of characteristics describing parents, who can be interested in viewing some content", 
+      "id": "ParentAudience", 
+      "label": "Parent Audience", 
+      "properties": [
+        "additionalType", 
+        "description", 
+        "image", 
+        "name", 
+        "url", 
+        "healthCondition", 
+        "suggestedGender", 
+        "suggestedMaxAge", 
+        "suggestedMinAge", 
+        "childMaxAge", 
+        "childMinAge"
+      ], 
+      "specific_properties": [
+        "childMaxAge", 
+        "childMinAge"
+      ], 
+      "subtypes": [], 
+      "supertypes": [
+        "PeopleAudience"
+      ], 
+      "url": "http://schema.org/ParentAudience"
     }, 
     "Park": {
       "ancestors": [
@@ -22698,6 +23902,42 @@
         "Enumeration"
       ], 
       "url": "http://schema.org/PaymentMethod"
+    }, 
+    "PeopleAudience": {
+      "ancestors": [
+        "Thing", 
+        "Intangible", 
+        "Audience"
+      ], 
+      "comment": "A set of characteristics belonging to people, e.g. who compose an item's target audience.", 
+      "comment_plain": "A set of characteristics belonging to people, e.g. who compose an item's target audience.", 
+      "id": "PeopleAudience", 
+      "label": "People Audience", 
+      "properties": [
+        "additionalType", 
+        "description", 
+        "image", 
+        "name", 
+        "url", 
+        "healthCondition", 
+        "suggestedGender", 
+        "suggestedMaxAge", 
+        "suggestedMinAge"
+      ], 
+      "specific_properties": [
+        "healthCondition", 
+        "suggestedGender", 
+        "suggestedMaxAge", 
+        "suggestedMinAge"
+      ], 
+      "subtypes": [
+        "MedicalAudience", 
+        "ParentAudience"
+      ], 
+      "supertypes": [
+        "Audience"
+      ], 
+      "url": "http://schema.org/PeopleAudience"
     }, 
     "PerformingArtsTheater": {
       "ancestors": [
@@ -23099,14 +24339,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -23117,6 +24362,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -23990,6 +25237,7 @@
         "name", 
         "url", 
         "aggregateRating", 
+        "audience", 
         "brand", 
         "color", 
         "depth", 
@@ -24017,6 +25265,7 @@
       ], 
       "specific_properties": [
         "aggregateRating", 
+        "audience", 
         "brand", 
         "color", 
         "depth", 
@@ -24068,6 +25317,7 @@
         "name", 
         "url", 
         "aggregateRating", 
+        "audience", 
         "brand", 
         "color", 
         "depth", 
@@ -24225,14 +25475,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -24243,6 +25498,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "breadcrumb", 
@@ -24262,6 +25519,33 @@
         "WebPage"
       ], 
       "url": "http://schema.org/ProfilePage"
+    }, 
+    "Property": {
+      "ancestors": [
+        "Thing"
+      ], 
+      "comment": "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.", 
+      "comment_plain": "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.", 
+      "id": "Property", 
+      "label": "Property", 
+      "properties": [
+        "additionalType", 
+        "description", 
+        "image", 
+        "name", 
+        "url", 
+        "domainIncludes", 
+        "rangeIncludes"
+      ], 
+      "specific_properties": [
+        "domainIncludes", 
+        "rangeIncludes"
+      ], 
+      "subtypes": [], 
+      "supertypes": [
+        "Thing"
+      ], 
+      "url": "http://schema.org/Property"
     }, 
     "PsychologicalTreatment": {
       "ancestors": [
@@ -24758,14 +26042,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -24776,6 +26065,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "cookingMethod", 
@@ -25148,14 +26439,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -25166,6 +26462,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "itemReviewed", 
@@ -25371,14 +26669,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -25389,6 +26692,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "articleBody", 
@@ -25499,14 +26804,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -25517,6 +26827,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -25609,14 +26921,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -25627,6 +26944,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "breadcrumb", 
@@ -25936,14 +27255,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -25954,6 +27278,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -26106,14 +27432,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -26124,6 +27455,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "applicationCategory", 
@@ -26194,6 +27527,7 @@
         "name", 
         "url", 
         "aggregateRating", 
+        "audience", 
         "brand", 
         "color", 
         "depth", 
@@ -26979,14 +28313,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -26997,6 +28336,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "actor", 
@@ -27065,14 +28406,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -27083,6 +28429,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "endDate", 
@@ -27147,14 +28495,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -27165,6 +28518,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "actor", 
@@ -27242,14 +28597,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -27260,6 +28620,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -27383,6 +28745,89 @@
         "CivicStructure"
       ], 
       "url": "http://schema.org/TaxiStand"
+    }, 
+    "TechArticle": {
+      "ancestors": [
+        "Thing", 
+        "CreativeWork", 
+        "Article"
+      ], 
+      "comment": "A technical article - Example: How-to (task) topics, step-by-step, procedural troubleshooting, specifications, etc.", 
+      "comment_plain": "A technical article - Example: How-to (task) topics, step-by-step, procedural troubleshooting, specifications, etc.", 
+      "id": "TechArticle", 
+      "label": "Tech Article", 
+      "properties": [
+        "additionalType", 
+        "description", 
+        "image", 
+        "name", 
+        "url", 
+        "about", 
+        "accountablePerson", 
+        "aggregateRating", 
+        "alternativeHeadline", 
+        "associatedMedia", 
+        "audience", 
+        "audio", 
+        "author", 
+        "award", 
+        "awards", 
+        "comment", 
+        "contentLocation", 
+        "contentRating", 
+        "contributor", 
+        "copyrightHolder", 
+        "copyrightYear", 
+        "creator", 
+        "dateCreated", 
+        "dateModified", 
+        "datePublished", 
+        "discussionUrl", 
+        "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
+        "encoding", 
+        "encodings", 
+        "genre", 
+        "headline", 
+        "inLanguage", 
+        "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
+        "isFamilyFriendly", 
+        "keywords", 
+        "learningResourceType", 
+        "mentions", 
+        "offers", 
+        "provider", 
+        "publisher", 
+        "publishingPrinciples", 
+        "review", 
+        "reviews", 
+        "sourceOrganization", 
+        "text", 
+        "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
+        "version", 
+        "video", 
+        "articleBody", 
+        "articleSection", 
+        "wordCount", 
+        "dependencies", 
+        "proficiencyLevel"
+      ], 
+      "specific_properties": [
+        "dependencies", 
+        "proficiencyLevel"
+      ], 
+      "subtypes": [
+        "APIReference"
+      ], 
+      "supertypes": [
+        "Article"
+      ], 
+      "url": "http://schema.org/TechArticle"
     }, 
     "TelevisionStation": {
       "ancestors": [
@@ -27677,6 +29122,7 @@
         "url"
       ], 
       "subtypes": [
+        "Class", 
         "CreativeWork", 
         "Event", 
         "Intangible", 
@@ -27684,7 +29130,8 @@
         "Organization", 
         "Person", 
         "Place", 
-        "Product"
+        "Product", 
+        "Property"
       ], 
       "supertypes": [], 
       "url": "http://schema.org/Thing"
@@ -28739,14 +30186,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -28757,6 +30209,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "breadcrumb", 
@@ -28815,14 +30269,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -28833,6 +30292,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "associatedArticle", 
@@ -28987,14 +30448,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -29005,6 +30471,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -29053,14 +30521,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -29071,6 +30544,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -29119,14 +30594,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -29137,6 +30617,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -29185,14 +30667,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -29203,6 +30690,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -29348,14 +30837,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -29366,6 +30860,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "applicationCategory", 
@@ -29436,14 +30932,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -29454,6 +30955,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video", 
         "breadcrumb", 
@@ -29531,14 +31034,19 @@
         "datePublished", 
         "discussionUrl", 
         "editor", 
+        "educationalAlignment", 
+        "educationalUse", 
         "encoding", 
         "encodings", 
         "genre", 
         "headline", 
         "inLanguage", 
         "interactionCount", 
+        "interactivityType", 
+        "isBasedOnUrl", 
         "isFamilyFriendly", 
         "keywords", 
+        "learningResourceType", 
         "mentions", 
         "offers", 
         "provider", 
@@ -29549,6 +31057,8 @@
         "sourceOrganization", 
         "text", 
         "thumbnailUrl", 
+        "timeRequired", 
+        "typicalAgeRange", 
         "version", 
         "video"
       ], 
@@ -29754,5 +31264,5 @@
       "url": "http://schema.org/Zoo"
     }
   }, 
-  "valid": "2013-03-28"
+  "valid": "2013-04-22"
 }
